@@ -10,10 +10,20 @@ async function loadPublications() {
       sort: "-publication_date",
       per_page: "100"
     });
+    
+  const apiUrl = new URL("https://api.openalex.org/works");
 
-    const response = await fetch(
-      `https://api.openalex.org/works?${params}`
-    );
+apiUrl.searchParams.set(
+  "filter",
+  `authorships.author.orcid:${ORCID}`
+);
+
+apiUrl.searchParams.set("sort", "publication_date:desc");
+apiUrl.searchParams.set("per_page", "100");
+
+console.log("OpenAlex request:", apiUrl.toString());
+
+const response = await fetch(apiUrl.toString());
 
     if (!response.ok) {
       throw new Error("Could not retrieve publications");

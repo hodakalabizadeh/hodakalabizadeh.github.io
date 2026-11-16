@@ -1,2 +1,521 @@
+
+/* ==========================================
+   HODA KALABIZADEH
+   Academic Research Website
+   ========================================== */
+
+/* ------------------------------------------
+   1. FONTS
+   ------------------------------------------ */
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
-:root{--navy:#172b4d;--ink:#25354a;--muted:#667180;--bronze:#a47849;--cream:#f8f7f3;--line:#deded8;--white:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.8 'DM Sans',Arial,sans-serif}a{color:var(--navy);text-underline-offset:4px}a:hover{color:var(--bronze)}.container{width:min(100% - 48px,960px);margin:auto}.site-header{background:var(--cream);border-bottom:1px solid var(--line)}.nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-family:'Libre Baskerville',Georgia,serif;font-size:17px;font-weight:700;text-decoration:none;white-space:nowrap}.nav-links{display:flex;gap:27px;flex-wrap:wrap}.nav-links a{font-size:13px;text-decoration:none;color:var(--muted);font-weight:600;letter-spacing:.035em}.nav-links a:hover,.nav-links a[aria-current=page]{color:var(--navy)}.nav-links a[aria-current=page]{border-bottom:2px solid var(--bronze);padding-bottom:5px}.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--bronze);font-weight:700}.hero{display:grid;grid-template-columns:minmax(0,1fr) 235px;align-items:center;gap:70px;padding:92px 0 86px}.hero h1,h1,h2,h3{font-family:'Libre Baskerville',Georgia,serif;color:var(--navy);line-height:1.35}h1{font-size:clamp(32px,5vw,48px);margin:14px 0 16px;font-weight:400}h2{font-size:25px;font-weight:400;margin:0 0 22px}h3{font-size:18px;margin:0 0 9px}.lead{font-size:18px;line-height:1.85;color:#445368}.muted{color:var(--muted)}.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:24px;background:#e5e5df}.portrait-placeholder{background:#e8e6df;border:1px solid var(--line);color:var(--muted);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;padding:20px}.section{padding:54px 0;border-top:1px solid var(--line)}.section-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px}.text-link{font-size:13px;font-weight:700;text-decoration:none}.tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.tag{border:1px solid #d5d9da;padding:5px 12px;font-size:12px;color:#526173}.publication{padding:22px 0;border-bottom:1px solid var(--line)}.publication:first-of-type{padding-top:0}.publication h3{font-family:'DM Sans',Arial,sans-serif;font-size:16px;font-weight:700;line-height:1.6;margin:0 0 6px}.publication p{margin:3px 0}.publication .meta{font-size:13px;color:var(--muted)}.publication a{font-size:13px;font-weight:700}.page-heading{padding:75px 0 40px}.page-heading p{max-width:700px}.year{font-family:'Libre Baskerville',Georgia,serif;font-size:21px;color:var(--navy);margin:36px 0 4px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{background:var(--white);border:1px solid var(--line);padding:27px;display:flex;flex-direction:column;align-items:start}.card p{font-size:14px;flex:1}.card .eyebrow{margin-bottom:13px}.cv-group{padding:28px 0;border-top:1px solid var(--line)}.cv-entry{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:14px 0}.cv-entry .date{font-size:13px;color:var(--muted)}.cv-entry strong{color:var(--navy)}.cv-entry p{margin:4px 0}.note{background:#f0eee7;padding:16px 20px;border-left:3px solid var(--bronze);font-size:13px;color:#526173}.back{display:inline-block;margin:30px 0}.site-footer{border-top:1px solid var(--line);padding:32px 0;margin-top:65px;font-size:12px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:16px;flex-wrap:wrap}.social a{color:var(--muted)}@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column;padding:22px 0;gap:14px}.nav-links{gap:19px}.hero{grid-template-columns:1fr;gap:30px;padding:55px 0}.portrait,.portrait-placeholder{max-width:230px}.cards{grid-template-columns:1fr}.cv-entry{grid-template-columns:1fr;gap:0}.page-heading{padding:55px 0 25px}.section{padding:40px 0}}
+
+
+/* ------------------------------------------
+   2. COLOUR PALETTE
+   ------------------------------------------ */
+
+:root {
+  --navy: #172b4d;
+  --ink: #25354a;
+  --muted: #667180;
+  --bronze: #a47849;
+  --cream: #f8f7f3;
+  --line: #deded8;
+  --white: #fff;
+}
+
+
+/* ------------------------------------------
+   3. GLOBAL STYLES
+   ------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 16px/1.8 'DM Sans', Arial, sans-serif;
+}
+
+a {
+  color: var(--navy);
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: var(--bronze);
+}
+
+.container {
+  width: min(100% - 48px, 960px);
+  margin: auto;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+
+/* ------------------------------------------
+   4. HEADER & NAVIGATION
+   ------------------------------------------ */
+
+.site-header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 27px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.035em;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--navy);
+}
+
+.nav-links a[aria-current="page"] {
+  border-bottom: 2px solid var(--bronze);
+  padding-bottom: 5px;
+}
+
+
+/* ------------------------------------------
+   5. TYPOGRAPHY
+   ------------------------------------------ */
+
+.hero h1,
+h1,
+h2,
+h3 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin: 14px 0 16px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 22px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0 0 9px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #445368;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 700;
+}
+
+.text-link {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* ------------------------------------------
+   6. HOME PAGE — HERO SECTION
+   ------------------------------------------ */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 235px;
+  align-items: center;
+  gap: 70px;
+  padding: 92px 0 86px;
+}
+
+/* Profile photo with rounded corners */
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+  background: #e5e5df;
+}
+
+.portrait-placeholder {
+  background: #e8e6df;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  padding: 20px;
+  border-radius: 24px;
+}
+
+
+/* ------------------------------------------
+   7. GENERAL PAGE SECTIONS
+   ------------------------------------------ */
+
+.section {
+  padding: 54px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.page-heading {
+  padding: 75px 0 40px;
+}
+
+.page-heading p {
+  max-width: 700px;
+}
+
+
+/* ------------------------------------------
+   8. RESEARCH INTEREST TAGS
+   ------------------------------------------ */
+
+.tags {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.tag {
+  border: 1px solid #d5d9da;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: #526173;
+}
+
+
+/* ------------------------------------------
+   9. PUBLICATIONS
+   ------------------------------------------ */
+
+.publication {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.publication:first-of-type {
+  padding-top: 0;
+}
+
+.publication h3 {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.publication p {
+  margin: 3px 0;
+}
+
+.publication .meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.publication a {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.year {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 21px;
+  color: var(--navy);
+  margin: 36px 0 4px;
+}
+
+
+/* ------------------------------------------
+   10. PROJECT CARDS
+   ------------------------------------------ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.card p {
+  font-size: 14px;
+  flex: 1;
+}
+
+.card .eyebrow {
+  margin-bottom: 13px;
+}
+
+
+/* ------------------------------------------
+   11. ACADEMIC CV
+   ------------------------------------------ */
+
+/* Main CV sections:
+   Education, Awards, Experience,
+   Teaching, Outreach, Skills
+*/
+
+.cv-group {
+  padding: 42px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cv-group h2 {
+  margin-bottom: 28px;
+}
+
+/* Individual CV entry:
+   Left column = date
+   Right column = details
+*/
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 28px;
+  padding: 0 0 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #e9e7e1;
+}
+
+/* Remove unnecessary spacing
+   after the final entry */
+
+.cv-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Date column */
+
+.cv-entry .date {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  padding-top: 4px;
+}
+
+/* Degree, position, or award title */
+
+.cv-entry strong {
+  display: block;
+  color: var(--navy);
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* CV descriptions */
+
+.cv-entry p {
+  margin: 8px 0;
+  line-height: 1.75;
+}
+
+/* Bullet points within CV entries */
+
+.cv-entry ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.cv-entry li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.cv-entry li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ------------------------------------------
+   12. NOTES & BACK LINKS
+   ------------------------------------------ */
+
+.note {
+  background: #f0eee7;
+  padding: 16px 20px;
+  border-left: 3px solid var(--bronze);
+  font-size: 13px;
+  color: #526173;
+}
+
+.back {
+  display: inline-block;
+  margin: 30px 0;
+}
+
+
+/* ------------------------------------------
+   13. FOOTER
+   ------------------------------------------ */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+  margin-top: 65px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social a {
+  color: var(--muted);
+}
+
+
+/* ------------------------------------------
+   14. MOBILE RESPONSIVENESS
+   ------------------------------------------ */
+
+@media (max-width: 700px) {
+
+  /* Navigation */
+
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 22px 0;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 19px;
+  }
+
+  /* Home page */
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 55px 0;
+  }
+
+  .portrait,
+  .portrait-placeholder {
+    max-width: 230px;
+  }
+
+  /* Project cards */
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* CV entries:
+     Stack dates above descriptions
+     on smaller screens
+  */
+
+  .cv-group {
+    padding: 32px 0;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+
+  .cv-entry .date {
+    padding-top: 0;
+  }
+
+  /* General sections */
+
+  .page-heading {
+    padding: 55px 0 25px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+}

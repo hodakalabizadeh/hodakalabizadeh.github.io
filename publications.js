@@ -7,7 +7,7 @@ async function loadPublications() {
   try {
     const params = new URLSearchParams({
       filter: `authorships.author.orcid:${ORCID}`,
-      sort: "-publication_date",
+      sort: "publication_date:desc",
       per_page: "100"
     });
     
@@ -26,8 +26,11 @@ console.log("OpenAlex request:", apiUrl.toString());
 const response = await fetch(apiUrl.toString());
 
     if (!response.ok) {
-      throw new Error("Could not retrieve publications");
-    }
+  const errorDetails = await response.text();
+  throw new Error(
+    `OpenAlex HTTP ${response.status}: ${errorDetails}`
+  );
+}
 
     const data = await response.json();
     const works = data.results || [];

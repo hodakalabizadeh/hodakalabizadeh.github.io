@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoda Kalabizadeh | Researcher</title>
+  <style>
+    :root {
+      --ink: #243447;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --line: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      margin-right: 14px;
+    }
+    nav a:hover, a { color: var(--accent); }
+    .hero {
+      padding: 85px 0 65px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+    .hero img {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .muted { color: var(--muted); }
+    section { padding: 35px 0; }
+    h2 {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      background: #eff6ff;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+    .publication { margin-bottom: 25px; }
+    .publication strong { display: block; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+      margin-top: 40px;
+      color: var(--muted);
+    }
+    @media (max-width: 600px) {
+      .hero { flex-direction: column-reverse; }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <strong>Hoda Kalabizadeh</strong>
+    <div>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero" id="about">
+    <div>
+      <h1>Hello, I'm Hoda</h1>
+      <p class="muted">
+        PhD Researcher | University of Oxford
+      </p>
+      <p>
+        I'm a researcher interested in
+        AI & Healthcare. My work focuses
+        on developing computer vision models for analysing medical images.
+      </p>
+      <a href="#research">Explore my research →</a>
+    </div>
+    <img src="profile.jpg" alt="Your portrait">
+  </section>
+
+  <section id="research">
+    <h2>Research Interests</h2>
+    <p>
+      My research focuses on translating deep learning models from research into clinical practice. In particular, I develop computer vision models designed to be robust to domain shifts, applying them to the task of accurate automated hippocampal segmentation for the monitoring and assessment of dementia.
+    </p>
+    <div class="tags">
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Medical Imaging</span>
+      <span class="tag">Computer Vision</span>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+
+    <div class="publication">
+      <strong>Title of Your First Paper</strong>
+      <span class="muted">
+        Your Name, Coauthor · Journal, 2025
+      </span>
+      <p><a href="#">Read paper →</a></p>
+    </div>
+
+    <div class="publication">
+      <strong>Title of Your Second Paper</strong>
+      <span class="muted">
+        Your Name et al. · Conference, 2024
+      </span>
+      <p><a href="#">Read paper →</a></p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <h3>Project Title</h3>
+    <p>
+      Describe your current research project,
+      its goals, and your contributions.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email:
+      <a href="mailto:hoda.kalabizadeh@cs.ox.ac.uk">
+        hoda.kalabizadeh@cs.ox.ac.uk
+      </a>
+    </p>
+    <p>
+      <a href="https://scholar.google.com/">
+        Google Scholar
+      </a> ·
+      <a href="https://github.com/">
+        GitHub
+      </a> ·
+      <a href="https://orcid.org/">
+        ORCID
+      </a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Hoda Kalabizadeh
+  </div>
+</footer>
+
+</body>
+</html>

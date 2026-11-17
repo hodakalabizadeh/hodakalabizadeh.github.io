@@ -592,3 +592,28 @@ h3 {
 .paper-table .best {
   font-weight: 700;
 }
+
+
+/* ------------------------------------------
+   PUBLICATION LINKS
+   ------------------------------------------ */
+
+.publication-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.publication-links a {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.publication-links a:hover {
+  color: var(--bronze);
+}
+

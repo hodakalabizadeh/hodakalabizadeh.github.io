@@ -319,6 +319,107 @@ h3 {
 }
 
 
+/* ==========================================
+   ACADEMIC RESULTS TABLES
+   ========================================== */
+
+.paper-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 32px 0 45px;
+}
+
+.paper-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Column headings */
+
+.paper-table thead {
+  border-bottom: 1px solid var(--navy);
+}
+
+.paper-table th {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Table cells */
+
+.paper-table th,
+.paper-table td {
+  padding: 7px 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Left-align model names */
+
+.paper-table th:nth-child(2),
+.paper-table td:nth-child(2) {
+  text-align: left;
+}
+
+/* Separator between CA and DS */
+
+.paper-table .group-divider td {
+  border-top: 1px solid var(--navy);
+}
+
+/* Dashed separator within DS */
+
+.paper-table .dashed-divider td {
+  border-top: 1px dashed #a5a5a5;
+}
+
+/* Bottom rule */
+
+.paper-table tbody tr:last-child td {
+  border-bottom: 1px solid var(--navy);
+}
+
+/* Highlight best results */
+
+.paper-table .best {
+  font-weight: 700;
+}
+
+/* Mathematical loss symbols */
+
+.paper-table .loss {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+/* Captions */
+
+.paper-table-caption {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+  .paper-table {
+    font-size: 11px;
+  }
+
+  .paper-table th,
+  .paper-table td {
+    padding: 6px;
+  }
+}
+
+
+
 /* ------------------------------------------
    11. ACADEMIC CV
    ------------------------------------------ */

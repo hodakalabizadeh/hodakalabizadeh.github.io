@@ -1049,25 +1049,60 @@
         MRI scans.
       </p>
 
-      <div class="project-figure">
-
-       
-
-        <div class="figure-placeholder">
-           <img
+      
+    <!-- ====================================
+         FIGURE 4 — SEGMENTATION COMPARISON
+         ==================================== -->
+    
+    <div class="project-figure figure-large">
+    
+      <div class="figure-comparison">
+    
+        <!-- Left: Ground Truth -->
+        <div class="figure-comparison-item">
+    
+          <img
             src="true_masks_yellow.png"
-            alt="Two-stage style transfer and segmentation pipeline"
+            alt="Manual ground truth hippocampus segmentation masks"
             loading="lazy"
           >
+    
+          <p class="figure-label">
+            (a) Manual Segmentation
+          </p>
+    
         </div>
-
-        <p class="figure-caption">
-          Manual and predicted hippocampal
-          segmentation masks on OBHC
-          clinical MRI test data.
-        </p>
-
+    
+        <!-- Right: Predicted Segmentation -->
+        <div class="figure-comparison-item">
+    
+          <img
+            src="pred_masks_yellow.png"
+            alt="Predicted hippocampus segmentation masks"
+            loading="lazy"
+          >
+    
+          <p class="figure-label">
+            (b) Predicted Segmentation
+          </p>
+    
+        </div>
+    
       </div>
+    
+      <!-- Shared caption -->
+    
+      <p class="figure-caption">
+        <strong>Figure 4.</strong>
+        Comparison of manually annotated
+        ground truth hippocampus segmentation
+        masks and predicted segmentation masks
+        on the Oxford Brain Health Clinic
+        (OBHC) test dataset.
+      </p>
+    
+    </div>
+
 
     </section>
 

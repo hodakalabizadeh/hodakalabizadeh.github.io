@@ -1,0 +1,1111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Investigating style transfer, preprocessing and hippocampus segmentation across research and clinical MRI."
+  >
+
+  <title>
+    Style Transfer and Preprocessing | Hoda Kalabizadeh
+  </title>
+
+  <!-- Shared website stylesheet -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Project-specific styling -->
+  <style>
+
+    /* PROJECT HEADER */
+
+    .project-header {
+      text-align: center;
+      padding: 75px 0 55px;
+    }
+
+    .project-header h1 {
+      max-width: 850px;
+      margin: 18px auto 24px;
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.4;
+    }
+
+    .project-authors {
+      max-width: 850px;
+      margin: 0 auto 16px;
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .project-authors span {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    .project-authors sup {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .project-affiliations {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 15px 0 28px;
+    }
+
+    .project-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      padding: 9px 22px;
+      border: 1px solid var(--navy);
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .project-links a:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+
+    /* PROJECT SECTIONS */
+
+    .project-section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-section h2 {
+      margin-bottom: 25px;
+    }
+
+    .project-section p {
+      max-width: 850px;
+      line-height: 1.85;
+    }
+
+
+    /* ACADEMIC ABSTRACT */
+
+    .abstract-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .abstract-section h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .abstract-text {
+      font-size: 15px;
+      line-height: 1.85;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      margin: 0;
+    }
+
+
+    /* FIGURES */
+
+    .project-figure {
+      width: 100%;
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 0;
+      text-align: center;
+    }
+
+    .project-figure.figure-large {
+      max-width: 800px;
+    }
+
+    .project-figure.figure-small {
+      max-width: 500px;
+    }
+
+    .project-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    .figure-caption {
+      max-width: 800px;
+      margin: 8px auto 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .figure-placeholder {
+      background: #eeece6;
+      border: 1px dashed #b9b9b1;
+      border-radius: 6px;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+
+    /* METHOD CARDS */
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0;
+    }
+
+    .method-step {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 24px;
+    }
+
+    .method-step h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .method-step p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+
+    /* RESULT CARDS */
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .result-card {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 25px;
+      text-align: center;
+    }
+
+    .result-number {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 30px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .result-label {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+
+    /* RESULTS TABLES */
+
+    .paper-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 20px 0 28px;
+    }
+
+    .paper-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      line-height: 1.5;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .paper-table th,
+    .paper-table td {
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .paper-table thead {
+      border-bottom: 1px solid var(--navy);
+    }
+
+    .paper-table th {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .paper-table th:first-child,
+    .paper-table td:first-child {
+      text-align: left;
+    }
+
+    .paper-table tbody tr:last-child {
+      border-bottom: 1px solid var(--navy);
+    }
+
+    .paper-table-caption {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+      margin: 8px auto 0;
+    }
+
+
+    /* CITATION */
+
+    .bibtex {
+      background: #eeece6;
+      border-radius: 6px;
+      padding: 24px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .project-header {
+        padding: 50px 0 35px;
+      }
+
+      .project-section {
+        padding: 38px 0;
+      }
+
+      .method-steps,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .abstract-text {
+        text-align: left;
+        hyphens: none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header class="site-header">
+    <nav class="container nav"
+         aria-label="Main navigation">
+
+      <a class="brand" href="../../index.html">
+        Hoda Kalabizadeh
+      </a>
+
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../publications.html">
+          Publications
+        </a>
+        <a href="../../projects.html"
+           aria-current="page">Projects</a>
+        <a href="../../cv.html">CV</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <main class="container">
+
+    <!-- ====================================
+         PAPER HEADER
+         ==================================== -->
+
+    <section class="project-header">
+
+      <p class="eyebrow">
+        MICCAI Workshop on Machine Learning
+        in Clinical Neuroimaging · 2024
+      </p>
+
+      <h1>
+        Is Your Style Transfer Doing Anything
+        Useful? An Investigation into
+        Hippocampus Segmentation and
+        the Role of Preprocessing
+      </h1>
+
+      <div class="project-authors">
+
+        <span><strong>Hoda Kalabizadeh</strong><sup>1</sup></span>
+        <span>Ludovica Griffanti<sup>2</sup></span>
+        <span>Pak-Hei Yeung<sup>3</sup></span>
+        <span>Natalie Voets<sup>4</sup></span>
+        <span>Grace Gillis<sup>2</sup></span>
+        <span>Clare Mackay<sup>2</sup></span>
+        <span>Ana I. L. Namburete<sup>1</sup></span>
+        <span>Nicola K. Dinsdale<sup>1</sup></span>
+        <span>Konstantinos Kamnitsas<sup>5</sup></span>
+
+      </div>
+
+      <div class="project-affiliations">
+
+        <div>
+          <sup>1</sup> Department of Computer Science,
+          University of Oxford
+        </div>
+
+        <div>
+          <sup>2</sup> Department of Psychiatry,
+          University of Oxford
+        </div>
+
+        <div>
+          <sup>3</sup> Nanyang Technological University
+        </div>
+
+        <div>
+          <sup>4</sup> Nuffield Department of
+          Clinical Neurosciences,
+          University of Oxford
+        </div>
+
+        <div>
+          <sup>5</sup> Department of Engineering Science,
+          University of Oxford
+        </div>
+
+      </div>
+
+      <p class="muted">
+        Machine Learning in Clinical Neuroimaging
+        (MLCN 2024), LNCS 15266, pp. 155–165.
+        Published 2025.
+      </p>
+
+      <div class="project-links">
+
+        <a
+          href="https://doi.org/10.1007/978-3-031-78761-4_15"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Paper ↗
+        </a>
+
+        <a href="#method">Method</a>
+
+        <a href="#results">Results</a>
+
+        <a href="#citation">Citation</a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+         TEASER FIGURE
+         ==================================== -->
+
+    <section class="project-section">
+
+      <div class="project-figure figure-large">
+
+        <!-- Replace this placeholder with:
+        <img
+          src="framework.png"
+          alt="Two-stage style transfer and segmentation pipeline"
+        >
+        -->
+
+        <div class="figure-placeholder">
+          Figure 1 — Two-Stage Style Transfer
+          and Segmentation Framework
+        </div>
+
+        <p class="figure-caption">
+          Overview of the two-stage pipeline,
+          consisting of a style transfer network
+          followed by a hippocampus segmentation
+          network.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+         ABSTRACT
+         ==================================== -->
+
+    <section
+      class="project-section abstract-section"
+      id="abstract"
+    >
+
+      <h2>Abstract</h2>
+
+      <p class="abstract-text">
+        Brain atrophy assessment in MRI, particularly
+        of the hippocampus, is commonly used to
+        support diagnosis and monitoring of dementia.
+        Consequently, there is a demand for accurate
+        automated hippocampus quantification.
+        Most existing segmentation methods have been
+        developed and validated on research datasets
+        and, therefore, may not be appropriate for
+        clinical MR images and populations, leading
+        to potential gaps between dementia research
+        and clinical practice. In this study, we
+        investigated the performance of segmentation
+        models trained on research data that were
+        style-transferred to resemble clinical scans.
+        Our results highlighted the importance of
+        intensity normalisation methods in MRI
+        segmentation, and their relation to domain
+        shift and style-transfer. We found that whilst
+        normalising intensity based on min and max
+        values, commonly used in generative MR
+        harmonisation methods, may create a need
+        for style transfer, Z-score normalisation
+        effectively maintains style consistency,
+        and optimises performance. Moreover, we
+        show for our datasets spatial augmentations
+        are more beneficial than style harmonisation.
+        Thus, emphasising robust normalisation
+        techniques and spatial augmentation
+        significantly improves MRI hippocampus
+        segmentation.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================
+         MOTIVATION
+         ==================================== -->
+
+    <section class="project-section" id="motivation">
+
+      <h2>Motivation</h2>
+
+      <p>
+        Automated hippocampus segmentation
+        is an important component of MRI-based
+        assessment of neurodegenerative diseases,
+        including Alzheimer's disease.
+      </p>
+
+      <p>
+        However, models trained on research
+        datasets often struggle when applied
+        to clinical MRI scans because of
+        differences in acquisition protocols,
+        scanner characteristics, and patient
+        populations.
+      </p>
+
+      <p>
+        Generative style transfer has been
+        proposed as a way of harmonising
+        images across domains. But does
+        this additional complexity genuinely
+        improve segmentation, or can careful
+        preprocessing achieve comparable
+        results?
+      </p>
+
+      <p>
+        We investigate this question by
+        systematically examining the effects
+        of intensity normalisation,
+        spatial registration, and style
+        transfer on downstream hippocampus
+        segmentation.
+      </p>
+
+      <div class="project-figure">
+
+        <!-- Replace with hippocampal-volumes.png -->
+
+        <div class="figure-placeholder">
+          Figure 2 — Hippocampal Volume Differences
+        </div>
+
+        <p class="figure-caption">
+          Comparison of hippocampal volumes
+          between the HarP research dataset
+          and the Oxford Brain Health Clinic
+          population under different
+          registration approaches.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+         METHODOLOGY
+         ==================================== -->
+
+    <section class="project-section" id="method">
+
+      <h2>Proposed Method</h2>
+
+      <p>
+        We investigate a two-stage pipeline
+        for adapting hippocampus segmentation
+        models from labelled research MRI
+        data to unlabelled clinical MRI data.
+      </p>
+
+      <div class="method-steps">
+
+        <div class="method-step">
+
+          <p class="eyebrow">01</p>
+
+          <h3>Style Transfer</h3>
+
+          <p>
+            A Style-Encoding GAN (SE-GAN)
+            generates source images that
+            resemble the appearance of
+            target clinical MRI scans.
+          </p>
+
+        </div>
+
+        <div class="method-step">
+
+          <p class="eyebrow">02</p>
+
+          <h3>Segmentation</h3>
+
+          <p>
+            A 3D U-Net is trained using
+            the transformed source images
+            and their corresponding
+            hippocampal segmentation labels.
+          </p>
+
+        </div>
+
+        <div class="method-step">
+
+          <p class="eyebrow">03</p>
+
+          <h3>Preprocessing Analysis</h3>
+
+          <p>
+            We compare Min-Max and Z-score
+            intensity normalisation, along
+            with standard-space registration
+            and paired spatial registration.
+          </p>
+
+        </div>
+
+      </div>
+
+      <h3>Intensity Normalisation</h3>
+
+      <p>
+        We investigate whether differences
+        in intensity normalisation influence
+        the apparent benefits of generative
+        style transfer. In particular,
+        we compare Min-Max normalisation
+        with per-subject Z-score normalisation.
+      </p>
+
+      <h3>Spatial Registration</h3>
+
+      <p>
+        We compare registration to a
+        common MNI reference space with
+        paired registration, where source
+        images are individually registered
+        to target images to introduce
+        additional anatomical variation.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================
+         EXPERIMENTAL SETUP
+         ==================================== -->
+
+    <section class="project-section">
+
+      <h2>Experimental Setup</h2>
+
+      <p>
+        Experiments were conducted using
+        two brain MRI datasets representing
+        research and clinical populations.
+      </p>
+
+      <h3>HarP — Research Dataset</h3>
+
+      <p>
+        The HarP dataset contains 135
+        T1-weighted MRI volumes from
+        cognitively normal controls,
+        individuals with mild cognitive
+        impairment, and patients with
+        Alzheimer's disease, with
+        corresponding hippocampal annotations.
+      </p>
+
+      <h3>OBHC — Clinical Dataset</h3>
+
+      <p>
+        The Oxford Brain Health Clinic
+        dataset contains 29 patients
+        referred to a memory clinic.
+        Clinical hippocampal annotations
+        were used for evaluation, not
+        for training the adaptation model.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================
+         QUANTITATIVE RESULTS
+         ==================================== -->
+
+    <section class="project-section" id="results">
+
+      <h2>Quantitative Results</h2>
+
+      <p>
+        Our experiments show that appropriate
+        preprocessing substantially improves
+        segmentation performance on clinical
+        MRI data, reducing the additional
+        benefits of generative style transfer.
+      </p>
+
+      <div class="result-grid">
+
+        <div class="result-card">
+
+          <div class="result-number">0.616</div>
+
+          <div class="result-label">
+            Min-Max Normalisation
+            <br>
+            HarP → OBHC
+            <br>
+            Average Dice Score
+          </div>
+
+        </div>
+
+        <div class="result-card">
+
+          <div class="result-number">0.746</div>
+
+          <div class="result-label">
+            Z-score Normalisation
+            <br>
+            HarP → OBHC
+            <br>
+            Average Dice Score
+          </div>
+
+        </div>
+
+        <div class="result-card">
+
+          <div class="result-number">0.797</div>
+
+          <div class="result-label">
+            Paired Registration,
+            Style Transfer & Augmentation
+            <br>
+            Average Dice Score
+          </div>
+
+        </div>
+
+      </div>
+
+      <h3>Normalisation vs. Style Transfer</h3>
+
+      <p>
+        Z-score normalisation improves
+        segmentation performance compared
+        with Min-Max normalisation,
+        achieving a Dice score of 0.746
+        without style transfer.
+      </p>
+
+      <p>
+        When Z-score normalisation is used,
+        style transfer provides relatively
+        limited additional improvements,
+        suggesting that some apparent
+        style differences can be addressed
+        through appropriate preprocessing.
+      </p>
+
+      <h3>Spatial Augmentation</h3>
+
+      <p>
+        Paired affine registration improves
+        performance to a Dice score of 0.780
+        without style transfer, compared
+        with 0.787 when style transfer is
+        also applied.
+      </p>
+
+      <p>
+        The best-performing configuration,
+        combining paired registration,
+        style transfer, and standard
+        augmentation, achieves an average
+        Dice score of 0.797.
+      </p>
+
+
+      <!-- TABLE 2 FROM PAPER -->
+
+      <div class="paper-table-wrapper">
+
+        <table class="paper-table">
+
+          <caption class="paper-table-caption">
+            <strong>Table 2.</strong>
+            Segmentation results using different
+            normalisation and registration approaches.
+            N denotes the number of training hippocampi.
+          </caption>
+
+          <thead>
+            <tr>
+              <th>Train Data</th>
+              <th>Train N</th>
+              <th>Norm</th>
+              <th>Min DSC ↑</th>
+              <th>Avg DSC ↑</th>
+              <th>95% HD ↓</th>
+              <th>RAV ↓</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>OBHC</td>
+              <td>40</td>
+              <td>Z-score</td>
+              <td>0.617</td>
+              <td>0.744±0.016</td>
+              <td>3.865±1.357</td>
+              <td>18.388±1.694</td>
+            </tr>
+
+            <tr>
+              <td>HarP</td>
+              <td>64</td>
+              <td>Min-Max</td>
+              <td>0.480</td>
+              <td>0.616±0.037</td>
+              <td>5.264±0.970</td>
+              <td>97.972±9.456</td>
+            </tr>
+
+            <tr>
+              <td>MNI-Reg-6 ST</td>
+              <td>1,280</td>
+              <td>Min-Max</td>
+              <td>0.521</td>
+              <td>0.651±0.015</td>
+              <td>4.036±0.06</td>
+              <td>83.033±2.037</td>
+            </tr>
+
+            <tr>
+              <td>HarP</td>
+              <td>64</td>
+              <td>Z-score</td>
+              <td>0.674</td>
+              <td>0.746±0.009</td>
+              <td>6.013±1.297</td>
+              <td>26.326±1.856</td>
+            </tr>
+
+            <tr>
+              <td>MNI-Reg-6 ST</td>
+              <td>1,280</td>
+              <td>Z-score</td>
+              <td>0.688</td>
+              <td>0.757±0.008</td>
+              <td>5.072±1.391</td>
+              <td>20.736±1.906</td>
+            </tr>
+
+            <tr>
+              <td>Paired-Reg-12</td>
+              <td>1,280</td>
+              <td>Z-score</td>
+              <td>0.703</td>
+              <td>0.780±0.005</td>
+              <td>3.452±0.237</td>
+              <td>20.009±0.913</td>
+            </tr>
+
+            <tr>
+              <td>Paired-Reg-12 ST</td>
+              <td>1,280</td>
+              <td>Z-score</td>
+              <td>0.672</td>
+              <td>0.787±0.004</td>
+              <td>3.169±0.250</td>
+              <td>23.794±4.033</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>
+                  Paired-Reg-12 ST + Aug
+                </strong>
+              </td>
+              <td>1,280</td>
+              <td>Z-score</td>
+              <td><strong>0.719</strong></td>
+              <td><strong>0.797±0.003</strong></td>
+              <td><strong>3.133±0.143</strong></td>
+              <td>27.509±3.724</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+         QUALITATIVE RESULTS
+         ==================================== -->
+
+    <section class="project-section">
+
+      <h2>Qualitative Results</h2>
+
+      <p>
+        Visual comparisons of style-transferred
+        images reveal that Min-Max normalisation
+        produces more pronounced changes
+        in image appearance.
+      </p>
+
+      <p>
+        In contrast, Z-score normalisation
+        produces more consistent intensity
+        distributions, reducing the visible
+        effect of style transfer.
+      </p>
+
+      <div class="project-figure figure-large">
+
+        <!-- Replace with style-transfer-results.png -->
+
+        <div class="figure-placeholder">
+          Figure 3 — Style Transfer Comparisons
+        </div>
+
+        <p class="figure-caption">
+          Style-transferred MRI images
+          generated using Min-Max and
+          Z-score normalisation.
+        </p>
+
+      </div>
+
+      <p>
+        Qualitative segmentation results
+        demonstrate the ability of the
+        best-performing model to delineate
+        hippocampal structures in clinical
+        MRI scans.
+      </p>
+
+      <div class="project-figure">
+
+        <!-- Replace with segmentation-results.png -->
+
+        <div class="figure-placeholder">
+          Figure 4 — Segmentation Predictions
+        </div>
+
+        <p class="figure-caption">
+          Manual and predicted hippocampal
+          segmentation masks on OBHC
+          clinical MRI test data.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+         CONCLUSION
+         ==================================== -->
+
+    <section class="project-section">
+
+      <h2>Conclusion</h2>
+
+      <p>
+        Our findings demonstrate the
+        importance of carefully evaluating
+        preprocessing choices when developing
+        domain adaptation methods for
+        medical image segmentation.
+      </p>
+
+      <p>
+        In particular, Z-score normalisation
+        substantially reduces intensity-related
+        domain shift, limiting the additional
+        benefits of generative style transfer.
+      </p>
+
+      <p>
+        Spatial augmentation through paired
+        affine registration provides further
+        improvements by increasing anatomical
+        diversity in the training data.
+      </p>
+
+      <p>
+        These results suggest that robust
+        intensity normalisation and appropriate
+        spatial augmentation should be
+        prioritised when developing
+        generalisable hippocampus segmentation
+        models for clinical applications.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================
+         CITATION
+         ==================================== -->
+
+    <section class="project-section" id="citation">
+
+      <h2>Citation</h2>
+
+      <p>
+        If you find this work useful,
+        please cite our paper:
+      </p>
+
+      <pre class="bibtex"><code>@inproceedings{kalabizadeh2024style,
+  title={Is Your Style Transfer Doing Anything
+         Useful? An Investigation into
+         Hippocampus Segmentation and
+         the Role of Preprocessing},
+  author={Kalabizadeh, Hoda and
+          Griffanti, Ludovica and
+          Yeung, Pak-Hei and
+          Voets, Natalie and
+          Gillis, Grace and
+          Mackay, Clare and
+          Namburete, Ana I. L. and
+          Dinsdale, Nicola K. and
+          Kamnitsas, Konstantinos},
+  booktitle={Machine Learning in
+             Clinical Neuroimaging},
+  pages={155--165},
+  year={2025},
+  publisher={Springer},
+  doi={10.1007/978-3-031-78761-4_15}
+}</code></pre>
+
+    </section>
+
+    <a class="back" href="../../projects.html">
+      ← Back to Projects
+    </a>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <span>© 2026 Hoda Kalabizadeh</span>
+
+      <div class="social">
+
+        <a href="mailto:hoda.kalabizadeh@cs.ox.ac.uk">
+          Email
+        </a>
+
+        <a href="../../publications.html">
+          Publications
+        </a>
+
+        <a href="../../projects.html">
+          Projects
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

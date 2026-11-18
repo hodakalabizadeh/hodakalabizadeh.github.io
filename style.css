@@ -655,46 +655,50 @@ h3 {
 }
 
 
+
 /* ------------------------------------------
    PROJECT CARD ALIGNMENT
    ------------------------------------------ */
 
-   .project-card {
-     display: flex;
-     flex-direction: column;
-     align-items: stretch;
-   }
-   
-   /* Workshop heading */
-   
-   .project-card .eyebrow {
-     margin: 0 0 6px;
-   }
-   
-   /* Project title — no forced empty space */
-   
-   .project-card h3 {
-     margin: 0 0 12px;
-     line-height: 1.5;
-     min-height: 0;
-   }
-   
-   /* Framework image */
-   
-   .project-card .project-card-image {
-     margin: 0 0 12px;
-   }
-   
-   /* Project description */
-   
-   .project-card > p:not(.eyebrow) {
-     margin: 0 0 16px;
-   }
-   
-   /* Project link */
-   
-   .project-card > .text-link {
-     margin-top: auto;
-   }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Workshop heading — prevent stretching */
+
+.project-card .eyebrow {
+  flex: none;
+  margin: 0 0 8px;
+}
+
+/* Project title — no forced empty space */
+
+.project-card h3 {
+  min-height: 0;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* Framework image */
+
+.project-card .project-card-image {
+  flex: none;
+  margin: 0 0 12px;
+}
+
+/* Project description — prevent stretching */
+
+.project-card > p:not(.eyebrow) {
+  flex: none;
+  margin: 0 0 16px;
+}
+
+/* Keep Explore Project links at the bottom */
+
+.project-card > .text-link {
+  margin-top: auto;
+}
 
 

@@ -529,14 +529,14 @@
 
       <div class="project-figure">
 
-        <img
+      
+        <div class="figure-placeholder">
+            <img
           src="volume_plot.png"
           alt="volumes"
           loading="lazy"
         >
 
-        <div class="figure-placeholder">
-          Figure 2 — Hippocampal Volume Differences
         </div>
 
         <p class="figure-caption">
@@ -922,21 +922,59 @@
         effect of style transfer.
       </p>
 
-      <div class="project-figure figure-large">
+      
+<!-- ====================================
+     FIGURE 3 — STYLE TRANSFER COMPARISON
+     ==================================== -->
 
-        <!-- Replace with style-transfer-results.png -->
-
-        <div class="figure-placeholder">
-          Figure 3 — Style Transfer Comparisons
+    <div class="project-figure figure-large">
+    
+      <div class="figure-comparison">
+    
+        <!-- Left: Min-Max Normalisation -->
+        <div class="figure-comparison-item">
+    
+          <img
+            src="paired_DOF12_minMax_ST.png"
+            alt="Style-transferred MRI images using Min-Max normalisation"
+            loading="lazy"
+          >
+    
+          <p class="figure-label">
+            (a) Min-Max Normalisation
+          </p>
+    
         </div>
-
-        <p class="figure-caption">
-          Style-transferred MRI images
-          generated using Min-Max and
-          Z-score normalisation.
-        </p>
-
+    
+        <!-- Right: Z-score Normalisation -->
+        <div class="figure-comparison-item">
+    
+          <img
+            src="paired_DOF12_znorm_ST.png"
+            alt="Style-transferred MRI images using Z-score normalisation"
+            loading="lazy"
+          >
+    
+          <p class="figure-label">
+            (b) Z-score Normalisation
+          </p>
+    
+        </div>
+    
       </div>
+    
+      <!-- Shared caption -->
+    
+      <p class="figure-caption">
+        <strong>Figure 3.</strong>
+        Generated style-transferred MRI images
+        for a given source (first column) and
+        reference (first row), comparing
+        (a) Min-Max and (b) Z-score normalisation.
+      </p>
+    
+    </div>
+
 
       <p>
         Qualitative segmentation results
@@ -948,14 +986,14 @@
 
       <div class="project-figure">
 
-        <img
+       
+
+        <div class="figure-placeholder">
+           <img
             src="true_masks_yellow.png"
             alt="Two-stage style transfer and segmentation pipeline"
             loading="lazy"
           >
-
-        <div class="figure-placeholder">
-          Figure 4 — Segmentation Predictions
         </div>
 
         <p class="figure-caption">

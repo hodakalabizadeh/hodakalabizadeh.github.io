@@ -447,56 +447,57 @@
     </section>
 
 
-    <!-- ====================================
-         ABSTRACT
-         ==================================== -->
+    
+<!-- ====================================
+     ABSTRACT
+     ==================================== -->
 
-    <section class="project-section" id="abstract">
-
-      <h2>Abstract</h2>
-
-      <p>
-        Deep learning models for medical image
-        segmentation often struggle to generalise
-        across datasets due to domain shifts.
-        These shifts arise from differences in
-        image appearance (style) and
-        population-dependent anatomical
-        characteristics (content).
+    <section
+      class="project-section abstract-section"
+      id="abstract"
+      aria-labelledby="abstract-heading"
+    >
+    
+      <h2 id="abstract-heading">Abstract</h2>
+    
+      <p class="abstract-text">
+        Deep learning models for medical image segmentation
+        often struggle when deployed across different datasets
+        due to domain shifts — variations in both image
+        appearance, known as style, and population-dependent
+        anatomical characteristics, referred to as content.
+        This paper presents a novel unsupervised domain
+        adaptation framework that directly addresses domain
+        shifts encountered in cross-domain hippocampus
+        segmentation from MRI, with specific emphasis on
+        content variations. Our approach combines efficient
+        style harmonisation through z-normalisation with a
+        bidirectional deformable image registration (DIR)
+        strategy. The DIR network is jointly trained with
+        segmentation and discriminator networks to guide
+        the registration with respect to a region of interest
+        and generate anatomically plausible transformations
+        that align source images to the target domain.
+        We validate our approach through comprehensive
+        evaluations on both a synthetic dataset using
+        Morpho-MNIST (for controlled validation of core
+        principles) and three MRI hippocampus datasets
+        representing populations with varying degrees of
+        atrophy. Across all experiments, our method
+        outperforms existing baselines. For hippocampus
+        segmentation, when transferring from young,
+        healthy populations to clinical dementia patients,
+        our framework achieves up to 15% relative
+        improvement in Dice score compared to standard
+        augmentation methods, with the largest gains
+        observed in scenarios with substantial content
+        shift. These results highlight the efficacy of
+        our approach for accurate hippocampus
+        segmentation across diverse populations.
       </p>
-
-      <p>
-        We propose an unsupervised domain adaptation
-        framework for hippocampus segmentation
-        that explicitly addresses both types
-        of domain shift.
-      </p>
-
-      <p>
-        Our approach combines intensity
-        normalisation for style harmonisation
-        with a bidirectional deformable image
-        registration framework for content alignment.
-        Registration, segmentation and discriminator
-        networks are jointly trained to generate
-        anatomically plausible transformations
-        that account for differences between
-        source and target populations.
-      </p>
-
-      <p>
-        We evaluate our framework on synthetic
-        Morpho-MNIST data and three hippocampus
-        MRI datasets representing populations
-        with varying degrees of atrophy.
-        Our method consistently improves
-        cross-domain segmentation performance,
-        with particularly strong gains when
-        transferring from young healthy
-        populations to clinical dementia patients.
-      </p>
-
+    
     </section>
+
 
 
     <!-- ====================================

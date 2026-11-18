@@ -351,8 +351,7 @@ h3 {
    /* Optional subtle hover effect */
 
       .project-card-image:hover img {
-        transform: scale(1.02);
-        transition: transform 0.2s ease;
+        opacity: 0.85;
       }
 
 

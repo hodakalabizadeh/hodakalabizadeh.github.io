@@ -172,11 +172,12 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 170px;
+  grid-template-columns: minmax(0, 1fr) 210px;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
   padding: 75px 0 35px;
 }
+
 
 .hero .eyebrow {
   margin: 0 0 16px;
@@ -208,9 +209,14 @@ margin-bottom: 18px;
   color: var(--muted);
 }
 
+
+/* ------------------------------------------
+   PROFILE PHOTO
+   ------------------------------------------ */
+
 .hero-photo {
   width: 100%;
-  max-width: 170px;
+  max-width: 210px;
   justify-self: end;
 }
 
@@ -238,6 +244,7 @@ margin-bottom: 18px;
   font-size: 13px;
   padding: 20px;
 }
+
 
 .home-introduction {
   max-width: 780px;
@@ -711,18 +718,18 @@ margin-bottom: 18px;
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) 110px;
-    gap: 16px;
-    padding: 50px 0 28px;
+    grid-template-columns: minmax(0, 1fr) 140px;
+    gap: 20px;
   }
+
+  .hero-photo {
+    max-width: 140px;
+  }
+}
 
   .hero .hero-name {
     font-size: clamp(42px, 8vw, 60px);
     line-height: 1.08;
-  }
-   
-  .hero-photo {
-    max-width: 110px;
   }
 
   .home-introduction {
@@ -767,8 +774,8 @@ margin-bottom: 18px;
   }
 
   .hero-photo {
+    max-width: 180px;
     justify-self: start;
-    max-width: 150px;
   }
 }
 

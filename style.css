@@ -167,31 +167,34 @@ h3 {
 
 
 /* ------------------------------------------
-   6. ACADEMIC NOTEBOOK HOMEPAGE
+   6. HOMEPAGE — BALANCED EDITORIAL LAYOUT
    ------------------------------------------ */
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 210px;
+  grid-template-columns: minmax(0, 1fr) 230px;
   align-items: center;
   gap: 40px;
-  padding: 75px 0 35px;
+  padding: 65px 0 20px;
 }
 
+.hero-intro {
+  min-width: 0;
+}
 
 .hero .eyebrow {
   margin: 0 0 16px;
+  color: var(--bronze);
 }
 
 .hero .hero-name {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(56px, 7vw, 88px);
+  font-size: clamp(60px, 7vw, 88px);
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   color: var(--ink);
-  margin: 0 0 28px;
-margin-bottom: 18px;
+  margin: 0 0 20px;
 }
 
 .hero-name > span {
@@ -205,36 +208,34 @@ margin-bottom: 18px;
 .hero-affiliation {
   font-size: 14px;
   line-height: 1.7;
-  margin: 0;
   color: var(--muted);
+  margin: 0;
 }
 
+/* Portrait and links below it */
 
-/* ------------------------------------------
-   PROFILE PHOTO
-   ------------------------------------------ */
-
-.hero-photo {
+.hero-profile {
   width: 100%;
-  max-width: 210px;
+  max-width: 230px;
   justify-self: end;
 }
 
-.portrait,
-.portrait-placeholder {
+.hero-profile .portrait,
+.portrait {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 16px;
-}
-
-.portrait {
   height: auto;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  border-radius: 16px;
   background: #e5e5e5;
 }
 
 .portrait-placeholder {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
   background: #f0f0ee;
   border: 1px solid var(--line);
   color: var(--muted);
@@ -245,17 +246,51 @@ margin-bottom: 18px;
   padding: 20px;
 }
 
+.hero-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  margin-top: 18px;
+}
+
+.hero-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.hero-social a:hover,
+.hero-social a:focus-visible {
+  color: var(--bronze);
+}
+
+.hero-social svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Biography beneath the greeting and portrait */
 
 .home-introduction {
-  max-width: 780px;
-  padding: 0 0 65px;
+  max-width: 800px;
+  padding: 0 0 60px;
 }
 
 .home-introduction p {
-  font-size: 16px;
-  line-height: 1.85;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--ink);
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 
 .home-introduction .text-link {
@@ -718,18 +753,26 @@ margin-bottom: 18px;
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) 140px;
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    gap: 22px;
+    padding: 45px 0 25px;
   }
-
-  .hero-photo {
-    max-width: 140px;
-  }
-}
 
   .hero .hero-name {
     font-size: clamp(42px, 8vw, 60px);
-    line-height: 1.08;
+  }
+
+  .hero-profile {
+    max-width: 160px;
+  }
+
+  .hero-social {
+    gap: 12px;
+  }
+
+  .hero-social svg {
+    width: 19px;
+    height: 19px;
   }
 
   .home-introduction {
@@ -737,7 +780,7 @@ margin-bottom: 18px;
   }
 
   .home-introduction p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .cards {
@@ -768,18 +811,21 @@ margin-bottom: 18px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .hero {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .hero-photo {
-    max-width: 180px;
+  .hero-profile {
     justify-self: start;
+    max-width: 200px;
+  }
+
+  .hero .hero-name {
+    font-size: clamp(50px, 11vw, 68px);
   }
 }
-
-
 
 /* ------------------------------------------
    BURGUNDY ACCENT LINKS

@@ -32,12 +32,15 @@
       padding: 75px 0 55px;
     }
 
-    .project-header h1 {
+
+  .project-header h1 {
       max-width: 850px;
       margin: 18px auto 24px;
-      font-size: clamp(29px, 4vw, 43px);
+      font-size: clamp(26px, 3.2vw, 36px);
       line-height: 1.4;
+      font-weight: 400;
     }
+
 
     .project-authors {
       max-width: 850px;
@@ -364,6 +367,28 @@
       }
     }
 
+    
+    /* ------------------------------------------
+       PROJECT TITLE & SUBTITLE
+       ------------------------------------------ */
+    
+      .project-header .project-main-title {
+        max-width: 850px;
+        margin: 18px auto 12px;
+        font-size: clamp(28px, 3.2vw, 36px);
+        line-height: 1.4;
+        font-weight: 400;
+      }
+      
+      .project-header .project-subtitle {
+        max-width: 750px;
+        margin: 0 auto 30px;
+        font-family: 'Libre Baskerville', Georgia, serif;
+        font-size: clamp(17px, 2vw, 21px);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--muted);
+      }
 
   </style>
 </head>
@@ -407,12 +432,18 @@
         in Clinical Neuroimaging · 2024
       </p>
 
-      <h1>
-        Is Your Style Transfer Doing Anything
-        Useful? <br> An Investigation into
-        Hippocampus Segmentation and
-        the Role of Preprocessing
-      </h1>
+      <!-- Main paper title -->
+
+        <h1 class="project-main-title">
+          Is Your Style Transfer Doing Anything Useful?
+        </h1>
+        
+        <!-- Paper subtitle -->
+        
+        <p class="project-subtitle">
+          An Investigation into Hippocampus Segmentation
+          and the Role of Preprocessing
+        </p>
 
       <div class="project-authors">
 

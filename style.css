@@ -119,11 +119,10 @@ a:hover {
    5. TYPOGRAPHY
    ------------------------------------------ */
 
-.hero h1,
 h1,
 h2,
 h3 {
-  font-family: 'Libre Baskerville', Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   color: var(--navy);
   line-height: 1.35;
 }
@@ -148,7 +147,7 @@ h3 {
 .lead {
   font-size: 18px;
   line-height: 1.85;
-  color: #445368;
+  color: var(--muted);
 }
 
 .eyebrow {
@@ -167,42 +166,94 @@ h3 {
 
 
 /* ------------------------------------------
-   6. HOME PAGE — HERO SECTION
+   6. ACADEMIC NOTEBOOK HOMEPAGE
    ------------------------------------------ */
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 235px;
+  grid-template-columns: minmax(0, 1fr) 170px;
   align-items: center;
-  gap: 70px;
-  padding: 92px 0 86px;
+  gap: 48px;
+  padding: 75px 0 35px;
 }
 
-/* Profile photo with rounded corners */
+.hero .eyebrow {
+  margin: 0 0 16px;
+}
+
+.hero .hero-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(44px, 5.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+
+.hero-name > span {
+  display: block;
+}
+
+.hero-name .name-highlight {
+  color: var(--bronze);
+}
+
+.hero-affiliation {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 170px;
+  justify-self: end;
+}
+
+.portrait,
+.portrait-placeholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+}
 
 .portrait {
-  width: 100%;
-  aspect-ratio: 4/5;
+  height: auto;
   object-fit: cover;
-  display: block;
-  border-radius: 24px;
-  background: #e5e5df;
+  background: #e5e5e5;
 }
 
 .portrait-placeholder {
-  background: #e8e6df;
+  background: #f0f0ee;
   border: 1px solid var(--line);
   color: var(--muted);
-  aspect-ratio: 4/5;
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 13px;
   padding: 20px;
-  border-radius: 24px;
 }
 
+.home-introduction {
+  max-width: 780px;
+  padding: 0 0 65px;
+}
+
+.home-introduction p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.home-introduction .text-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--bronze);
+}
 
 /* ------------------------------------------
    7. GENERAL PAGE SECTIONS
@@ -284,7 +335,7 @@ h3 {
 }
 
 .year {
-  font-family: 'Libre Baskerville', Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 21px;
   color: var(--navy);
   margin: 36px 0 4px;
@@ -307,12 +358,11 @@ h3 {
   padding: 27px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: stretch;
 }
 
 .card p {
   font-size: 14px;
-  flex: 1;
 }
 
 .card .eyebrow {
@@ -324,38 +374,33 @@ h3 {
    PROJECT CARD IMAGE
    ------------------------------------------ */
 
-   .project-card-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      
-        width: 100%;
-        max-width: 100%;
-        height: 160px;
-      
-        margin: 12px 0;
-        overflow: hidden;
-        background: #fff;
-        border-radius: 4px;
-      }
-   
-   .project-card-image img {
-        display: block;
-      
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-      
-        object-fit: contain;
-      }
-   
-   /* Optional subtle hover effect */
+.project-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 140px;
+  margin: 12px 0;
+  padding: 8px;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 4px;
+}
 
-      .project-card-image:hover img {
-        opacity: 0.85;
-      }
+.project-card-image img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
 
-
+.project-card-image:hover img {
+  opacity: 0.85;
+}
 
 /* ------------------------------------------
    11. ACADEMIC CV
@@ -490,81 +535,6 @@ h3 {
 
 .social a {
   color: var(--muted);
-}
-
-
-/* ------------------------------------------
-   14. MOBILE RESPONSIVENESS
-   ------------------------------------------ */
-
-@media (max-width: 700px) {
-
-  /* Navigation */
-
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 22px 0;
-    gap: 14px;
-  }
-
-  .nav-links {
-    gap: 19px;
-  }
-
-  /* Home page */
-
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 55px 0;
-  }
-
-  .portrait,
-  .portrait-placeholder {
-    max-width: 230px;
-  }
-
-  /* Project cards */
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  /* CV entries:
-     Stack dates above descriptions
-     on smaller screens
-  */
-
-  .cv-group {
-    padding: 32px 0;
-  }
-
-  .cv-entry {
-    grid-template-columns: 1fr;
-    gap: 6px;
-    padding-bottom: 22px;
-    margin-bottom: 22px;
-  }
-
-  .cv-entry .date {
-    padding-top: 0;
-  }
-
-  /* General sections */
-
-  .page-heading {
-    padding: 55px 0 25px;
-  }
-
-  .section {
-    padding: 40px 0;
-  }
-
-}
-
-#publications {
-  border-top: none;
 }
 
 
@@ -710,82 +680,86 @@ h3 {
 
 
 /* ------------------------------------------
-   EDITORIAL TYPOGRAPHY
+   HOME PUBLICATIONS
    ------------------------------------------ */
 
-
-
-/* Main headings */
-
-h1,
-h2,
-h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  letter-spacing: -0.035em;
-}
-
-/* Homepage name */
-
-.hero h1 {
-  font-size: clamp(44px, 6vw, 72px);
-  line-height: 1.1;
-  font-weight: 400;
-  letter-spacing: -0.055em;
-}
-
-/* Section headings */
-
-h2 {
-  font-size: clamp(25px, 3vw, 34px);
-  line-height: 1.25;
-}
-
-/* Small editorial labels */
-
-.eyebrow {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-/* Publication titles remain easy to read */
-
-.publication h3 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  letter-spacing: normal;
+#publications {
+  border-top: none;
 }
 
 /* ------------------------------------------
-   EDITORIAL HOMEPAGE HEADING
+   RESPONSIVE LAYOUT
    ------------------------------------------ */
 
-.hero .hero-name {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(44px, 5.5vw, 68px);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.045em;
-  color: #252a32;
-  margin: 12px 0 24px;
-}
-
-.hero-name > span {
-  display: block;
-}
-
-.hero-name .name-highlight {
-  color: #d65b4b;
-}
-
-/* Mobile */
-
 @media (max-width: 700px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 22px 0;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 19px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 110px;
+    gap: 16px;
+    padding: 50px 0 28px;
+  }
+
   .hero .hero-name {
-    font-size: clamp(40px, 9vw, 54px);
+    font-size: clamp(34px, 7vw, 48px);
+  }
+
+  .hero-photo {
+    max-width: 110px;
+  }
+
+  .home-introduction {
+    padding-bottom: 45px;
+  }
+
+  .home-introduction p {
+    font-size: 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-group {
+    padding: 32px 0;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+
+  .cv-entry .date {
+    padding-top: 0;
+  }
+
+  .page-heading {
+    padding: 55px 0 25px;
+  }
+
+  .section {
+    padding: 40px 0;
   }
 }
 
+@media (max-width: 420px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
 
+  .hero-photo {
+    justify-self: start;
+    max-width: 150px;
+  }
+}

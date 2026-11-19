@@ -172,10 +172,10 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-columns: minmax(0, 1fr) 190px;
   align-items: center;
-  gap: 25px;
-  padding: 65px 0 20px;
+  column-gap: 45px;
+  padding: 55px 0 15px;
 }
 
 .hero-intro {
@@ -189,16 +189,19 @@ h3 {
 
 .hero .hero-name {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(60px, 7vw, 88px);
+  font-size: clamp(58px, 7vw, 84px);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.04;
   letter-spacing: -0.055em;
   color: var(--ink);
-  margin: 0 0 20px;
+  margin: 0;
 }
+
+/* Prevent the greeting from wrapping awkwardly */
 
 .hero-name > span {
   display: block;
+  white-space: nowrap;
 }
 
 .hero-name .name-highlight {
@@ -741,6 +744,12 @@ h3 {
    RESPONSIVE LAYOUT
    ------------------------------------------ */
 
+@media (max-width: 900px) {
+  .hero .hero-name {
+    font-size: clamp(46px, 6.5vw, 70px);
+  }
+}
+
 @media (max-width: 700px) {
   .nav {
     align-items: flex-start;
@@ -753,19 +762,22 @@ h3 {
     gap: 19px;
   }
 
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 160px;
-    gap: 22px;
-    padding: 45px 0 25px;
+ .hero {
+    grid-template-columns: minmax(0, 1fr) 140px;
+    gap: 20px;
   }
 
   .hero .hero-name {
-    font-size: clamp(42px, 8vw, 60px);
+    font-size: clamp(36px, 6vw, 48px);
   }
 
   .hero-profile {
-    max-width: 160px;
-   transform: none;
+    max-width: 140px;
+    transform: none;
+  }
+
+  .hero-profile .portrait {
+    height: 165px;
   }
 
   .hero-social {
@@ -816,16 +828,15 @@ h3 {
 @media (max-width: 480px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .hero-profile {
-    justify-self: start;
-    max-width: 200px;
   }
 
   .hero .hero-name {
-    font-size: clamp(50px, 11vw, 68px);
+    font-size: clamp(48px, 10vw, 68px);
+  }
+
+  .hero-profile {
+    max-width: 190px;
+    justify-self: start;
   }
 }
 

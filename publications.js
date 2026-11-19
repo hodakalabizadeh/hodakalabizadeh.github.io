@@ -62,30 +62,30 @@ const response = await fetch(apiUrl.toString());
       const title = document.createElement("h3");
       title.textContent = work.title || "Untitled";
 
-      const authors = (work.authorships || [])
-        .map(a => a.author?.display_name)
-        .filter(Boolean)
-        .join(", ");
-
+      
+      // Publication venue
       const venue =
         work.primary_location?.source?.display_name ||
         "Research publication";
-
       
+      // Publication metadata
       const meta = document.createElement("p");
       meta.className = "meta";
       
-      // Create author names individually
-      work.authorships.forEach((entry, index) => {
+      // Add authors individually
+      const authorships = work.authorships || [];
+      
+      authorships.forEach((entry, index) => {
         const name = entry.author?.display_name || "";
+      
+        if (!name) return;
       
         if (index > 0) {
           meta.appendChild(document.createTextNode(", "));
         }
       
-        if (
-          name.toLowerCase().includes("kalabizadeh")
-        ) {
+        // Highlight my name
+        if (name.toLowerCase().includes("kalabizadeh")) {
           const boldName = document.createElement("strong");
           boldName.textContent = name;
           meta.appendChild(boldName);
@@ -94,12 +94,11 @@ const response = await fetch(apiUrl.toString());
         }
       });
       
-      // Add venue and year
+      // Add venue and publication year
       meta.appendChild(
         document.createTextNode(` · ${venue}, ${year}`)
       );
 
-      meta.textContent = `${authors} · ${venue}, ${year}`;
 
       const link = document.createElement("a");
       link.href = work.doi || work.id;

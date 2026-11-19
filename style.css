@@ -331,6 +331,11 @@ margin-bottom: 18px;
   color: var(--muted);
 }
 
+.publication .meta strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .publication a {
   font-size: 13px;
   font-weight: 700;

@@ -184,12 +184,13 @@ h3 {
 
 .hero .hero-name {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(44px, 5.5vw, 68px);
+  font-size: clamp(56px, 7vw, 88px);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.045em;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: var(--ink);
-  margin: 0 0 22px;
+  margin: 0 0 28px;
+margin-bottom: 18px;
 }
 
 .hero-name > span {
@@ -202,9 +203,9 @@ h3 {
 
 .hero-affiliation {
   font-size: 14px;
-  line-height: 1.8;
-  color: var(--muted);
+  line-height: 1.7;
   margin: 0;
+  color: var(--muted);
 }
 
 .hero-photo {
@@ -711,9 +712,10 @@ h3 {
   }
 
   .hero .hero-name {
-    font-size: clamp(34px, 7vw, 48px);
+    font-size: clamp(42px, 8vw, 60px);
+    line-height: 1.08;
   }
-
+   
   .hero-photo {
     max-width: 110px;
   }

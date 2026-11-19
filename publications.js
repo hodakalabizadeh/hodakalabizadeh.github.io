@@ -71,8 +71,34 @@ const response = await fetch(apiUrl.toString());
         work.primary_location?.source?.display_name ||
         "Research publication";
 
+      
       const meta = document.createElement("p");
       meta.className = "meta";
+      
+      // Create author names individually
+      work.authorships.forEach((entry, index) => {
+        const name = entry.author?.display_name || "";
+      
+        if (index > 0) {
+          meta.appendChild(document.createTextNode(", "));
+        }
+      
+        if (
+          name.toLowerCase().includes("kalabizadeh")
+        ) {
+          const boldName = document.createElement("strong");
+          boldName.textContent = name;
+          meta.appendChild(boldName);
+        } else {
+          meta.appendChild(document.createTextNode(name));
+        }
+      });
+      
+      // Add venue and year
+      meta.appendChild(
+        document.createTextNode(` · ${venue}, ${year}`)
+      );
+
       meta.textContent = `${authors} · ${venue}, ${year}`;
 
       const link = document.createElement("a");

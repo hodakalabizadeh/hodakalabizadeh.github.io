@@ -17,13 +17,13 @@
    ------------------------------------------ */
 
 :root {
-  --navy: #172b4d;
-  --ink: #25354a;
-  --muted: #667180;
-  --bronze: #a47849;
-  --cream: #f8f7f3;
-  --line: #deded8;
-  --white: #fff;
+  --navy: #252a32;
+  --ink: #252a32;
+  --muted: #626b76;
+  --bronze: #d65b4b;
+  --cream: #fafaf9;
+  --line: #e3e5e7;
+  --white: #ffffff;
 }
 
 
@@ -756,6 +756,36 @@ h2 {
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   letter-spacing: normal;
+}
+
+/* ------------------------------------------
+   EDITORIAL HOMEPAGE HEADING
+   ------------------------------------------ */
+
+.hero .hero-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(44px, 5.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: #252a32;
+  margin: 12px 0 24px;
+}
+
+.hero-name > span {
+  display: block;
+}
+
+.hero-name .name-highlight {
+  color: #d65b4b;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .hero .hero-name {
+    font-size: clamp(40px, 9vw, 54px);
+  }
 }
 
 

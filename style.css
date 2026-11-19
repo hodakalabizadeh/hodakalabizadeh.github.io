@@ -16,13 +16,14 @@
    2. COLOUR PALETTE
    ------------------------------------------ */
 
+
 :root {
-  --navy: #252a32;
-  --ink: #252a32;
-  --muted: #626b76;
-  --bronze: #d65b4b;
-  --cream: #fafaf9;
-  --line: #e3e5e7;
+  --navy: #29282d;
+  --ink: #29282d;
+  --muted: #737078;
+  --bronze: #800f2f;
+  --cream: #fbfbfa;
+  --line: #e8e5e7;
   --white: #ffffff;
 }
 
@@ -762,4 +763,22 @@ h3 {
     justify-self: start;
     max-width: 150px;
   }
+}
+
+
+
+/* ------------------------------------------
+   BURGUNDY ACCENT LINKS
+   ------------------------------------------ */
+
+.text-link,
+.publication-links a,
+.publication a {
+  color: var(--bronze);
+}
+
+.text-link:hover,
+.publication-links a:hover,
+.publication a:hover {
+  color: #590a20;
 }

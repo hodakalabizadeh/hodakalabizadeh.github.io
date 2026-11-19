@@ -172,9 +172,9 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 230px;
+  grid-template-columns: minmax(0, 1fr) 200px;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
   padding: 65px 0 20px;
 }
 
@@ -216,8 +216,9 @@ h3 {
 
 .hero-profile {
   width: 100%;
-  max-width: 230px;
+  max-width: 200px;
   justify-self: end;
+   transform: translateX(-25px);
 }
 
 .hero-profile .portrait,
@@ -764,6 +765,7 @@ h3 {
 
   .hero-profile {
     max-width: 160px;
+   transform: none;
   }
 
   .hero-social {
